@@ -21,3 +21,10 @@ while attempts > 0 and '_' in word_display:
     else:
        print('That letter does not appear in the word.')
        attempts -= 1
+
+if '_' not in word_display:
+   print('You guessed the word!')
+   print(' '.join(word_display))
+   print('You survived!')
+else:
+   print('Oops, you lost. Better luck next time!')
