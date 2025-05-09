@@ -1,3 +1,5 @@
+import random
+
 word_list = [
     {'portuguese': 'o', 'english': 'the'},
     {'portuguese': 'a', 'english': 'the'},
@@ -105,11 +107,20 @@ word_list = [
 def quiz_user(word_list):
     random.shuffle(word_list)
     score = 0
-
+    
     for word in word_list:
-        print(f'What is the Engish translation of "{word_list['portuguese']}"?')
+        print(f'What is the Engish translation of "{word["portuguese"]}"?')
         user_answer = input('Your answer: ').strip().lower()
-        correct_answer = word_list['english'].lower()
+        correct_answer = word['english'].lower()
+
+        if user_answer == correct_answer:
+            print('Correct Answer ✅\n')
+            score+= 1
+            
+        else:
+            print(f'Wrong ❌ The correct answer is "{word["english"]}" \n')
+    
+    print(f'Quiz complete, you scored {score} out of {len(word_list)}!')
     
 
 def main():
